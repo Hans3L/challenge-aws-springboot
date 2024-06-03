@@ -258,6 +258,7 @@ resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
   name = "provider-ecs"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
+    managed_termination_protection = "ENABLED"
 
     managed_scaling {
       maximum_scaling_step_size = 100
