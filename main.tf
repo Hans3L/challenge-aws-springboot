@@ -255,7 +255,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 // provider
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
-  name = "cp-ecs-1"
+#  name = "cp-ecs-1"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
 
@@ -365,4 +365,3 @@ resource "aws_ecs_service" "ecs_service" {
 output "autoscaling_group_id" {
   value = aws_autoscaling_group.autoscaling_group.id
 }
-

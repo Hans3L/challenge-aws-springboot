@@ -1,4 +1,4 @@
-name: Java CI with Maven Docker
+name: Deploy Infra AWS
 
 on:
   push:
