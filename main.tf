@@ -255,7 +255,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 // provider
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
-  name = "provider-ecs-2"
+  name = "provider-ecs-3"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
 #    managed_termination_protection = "DISABLED"
