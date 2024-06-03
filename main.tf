@@ -323,8 +323,7 @@ resource "aws_ecs_service" "ecs_service" {
   desired_count       = 2
   scheduling_strategy = "REPLICA"
   launch_type         = "FARGATE"
-
-
+  
   deployment_controller {
     type = "EXTERNAL"
   }
