@@ -301,12 +301,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
         memory = 512
         portMappings: [
           {
-            containerPort = 80
-            hostPort      = 80
-            protocol      = "tcp"
-            appProtocol   = "http"
-          },
-          {
             containerPort = 8080
             hostPort      = 8080
             protocol      = "tcp"
