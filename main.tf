@@ -255,10 +255,10 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 // provider
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
-  name = "provider-ecs"
+  name = "provider-ecs-1"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
-    managed_termination_protection = "DISABLED"
+#    managed_termination_protection = "DISABLED"
 
     managed_scaling {
       maximum_scaling_step_size = 100
