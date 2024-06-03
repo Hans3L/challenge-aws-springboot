@@ -255,7 +255,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 // provider
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
-  name = "provider-ecs-3"
+  name = "provider-ecs-30"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
 #    managed_termination_protection = "DISABLED"
@@ -310,7 +310,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
 }
 
 resource "aws_ecs_service" "ecs_service" {
-  name                = "ecs_service-2"
+  name                = "ecs_service-3"
   cluster             = aws_ecs_cluster.cluster_challenge.id
   task_definition     = aws_ecs_task_definition.ecs_task_definition.arn
   desired_count       = 2
