@@ -191,7 +191,7 @@ resource "aws_ecs_cluster" "cluster_challenge" {
 //template
 
 resource "aws_launch_template" "ecs_lt" {
-  name                   = "ecs-template-launch"
+#  name                   = "ecs-template-launch"
   image_id               = "ami-09040d770ffe2224f"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.lb_sg.id]
@@ -323,7 +323,7 @@ resource "aws_ecs_service" "ecs_service" {
   desired_count       = 2
   scheduling_strategy = "REPLICA"
   launch_type         = "FARGATE"
-  
+
   deployment_controller {
     type = "EXTERNAL"
   }
