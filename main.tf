@@ -278,7 +278,6 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
     base              = 1
     weight            = 100
   }
-
 }
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
@@ -304,7 +303,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
             containerPort = 8080
             hostPort      = 8080
             protocol      = "tcp"
-            appProtocol   = "http"
           }
         ]
       }
