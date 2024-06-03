@@ -179,14 +179,14 @@ resource "aws_ecs_cluster" "cluster_challenge" {
 #  }
 #}
 
-resource "aws_cloudwatch_log_group" "spring" {
-  name = "Spring"
+#resource "aws_cloudwatch_log_group" "spring" {
+#  name = "Spring"
 
-  tags = {
-    Environment = "dev"
-    Application = "service-app"
-  }
-}
+#  tags = {
+#    Environment = "dev"
+#    Application = "service-app"
+#  }
+#}
 
 //template
 
