@@ -310,12 +310,12 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
 }
 
 resource "aws_ecs_service" "ecs_service" {
-  name                = "ecs_service"
+  name                = "ecs_service-2"
   cluster             = aws_ecs_cluster.cluster_challenge.id
   task_definition     = aws_ecs_task_definition.ecs_task_definition.arn
   desired_count       = 2
-  scheduling_strategy = "REPLICA"
   launch_type         = "FARGATE"
+#  scheduling_strategy = "REPLICA"
 
   deployment_controller {
     type = "EXTERNAL"
