@@ -255,7 +255,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
 // provider
 
 resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
-  name = "provider-ecs-33"
+  name = "provider-ecs-34"
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.autoscaling_group.arn
 #    managed_termination_protection = "DISABLED"
@@ -283,7 +283,7 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
 }
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
-  family             = "task-01-3"
+  family             = "task-01-4"
   network_mode       = "awsvpc"
   cpu                = "1 vCPU"
   memory             = "3 GB"
@@ -319,10 +319,10 @@ resource "aws_ecs_service" "ecs_service" {
   launch_type         = "FARGATE"
   scheduling_strategy = "REPLICA"
 
-  placement_constraints {
-    type = "distinctInstance"
-  }
-  force_new_deployment = true
+#  placement_constraints {
+#    type = "distinctInstance"
+#  }
+#  force_new_deployment = true
 
 #  capacity_provider_strategy {
 #    capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
