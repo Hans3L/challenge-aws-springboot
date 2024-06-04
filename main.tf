@@ -283,7 +283,7 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
 }
 
 resource "aws_ecs_task_definition" "ecs_task_definition" {
-  family             = "task-01-4"
+  family             = "spring-task:1"
   network_mode       = "awsvpc"
   cpu                = "1 vCPU"
   memory             = "3 GB"
@@ -312,7 +312,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
 }
 
 resource "aws_ecs_service" "ecs_service" {
-  name                = "ecs_service-3"
+  name                = "ecs_service-4"
   cluster             = aws_ecs_cluster.cluster_challenge.id
   task_definition     = aws_ecs_task_definition.ecs_task_definition.arn
   desired_count       = 2
