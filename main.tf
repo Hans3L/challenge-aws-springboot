@@ -269,6 +269,8 @@ resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
   }
 }
 
+## if only ec2
+
 resource "aws_ecs_cluster_capacity_providers" "this" {
   cluster_name       = aws_ecs_cluster.cluster_challenge.name
   capacity_providers = [aws_ecs_capacity_provider.ecs_capacity_provider.name]
@@ -315,21 +317,17 @@ resource "aws_ecs_service" "ecs_service" {
   task_definition     = aws_ecs_task_definition.ecs_task_definition.arn
   desired_count       = 2
   launch_type         = "FARGATE"
-#  scheduling_strategy = "REPLICA"
+  scheduling_strategy = "REPLICA"
 
   placement_constraints {
     type = "distinctInstance"
   }
   force_new_deployment = true
 
-#   triggers = {
-#  redeployment = plantimestamp()
+#  capacity_provider_strategy {
+#    capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
+#    weight            = 100
 #  }
-
-  capacity_provider_strategy {
-    capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
-    weight            = 100
-  }
 
 #  load_balancer {
 #    target_group_arn = aws_lb_target_group.ecs_tg.arn
